@@ -1,0 +1,72 @@
+{
+  "name": "md-to-slack-blocks",
+  "version": "1.0.0",
+  "description": "Convert Markdown to Slack Block Kit blocks with full formatting support",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint src/",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "slack",
+    "markdown",
+    "block-kit",
+    "slack-blocks",
+    "slack-api",
+    "rich-text",
+    "markdown-parser",
+    "slack-message",
+    "slack-bot"
+  ],
+  "author": "Midlyr <hello@midlyr.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/midlyrAI/md-to-slack-blocks.git"
+  },
+  "bugs": {
+    "url": "https://github.com/midlyrAI/md-to-slack-blocks/issues"
+  },
+  "homepage": "https://github.com/midlyrAI/md-to-slack-blocks#readme",
+  "peerDependencies": {
+    "@slack/types": ">=2.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@slack/types": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@slack/types": "^2.17.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.3.0",
+    "vitest": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
